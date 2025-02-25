@@ -9,6 +9,27 @@ h1{
     text-align: center;
 }
 
+img{
+    width: 100px;
+    height: 100px;
+}
+
+#paper, #scissor, #rock{
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+}
+
+#how-button{
+    background-color: transparent;
+    border: 2px solid #003366;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 5px;
+}
+
 .score-container, .options-container{
     display: flex;
     justify-content: space-between;
@@ -37,4 +58,18 @@ h1{
 .score-human, .score-computer{
     font-size: 45.4px;
     color: #4a4a4a;
+}
+
+.computer-side, .human-side{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.how{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 200px 200px 20px 200px;
 }
