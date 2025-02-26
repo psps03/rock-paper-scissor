@@ -30,6 +30,11 @@ img{
     padding: 5px;
 }
 
+#human-score, #computer-score{
+    font-size: 45.4px;
+    color: #4a4a4a;
+}
+
 .score-container, .options-container{
     display: flex;
     justify-content: space-between;
@@ -53,11 +58,6 @@ img{
 .player{
     font-size: 20.7px;
     color: #003366;
-}
-
-.score-human, .score-computer{
-    font-size: 45.4px;
-    color: #4a4a4a;
 }
 
 .computer-side, .human-side{

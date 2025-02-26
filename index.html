@@ -6,21 +6,20 @@
     <title>Rock, Paper, Scissor Game</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
 </head>
 <body>
-    <!--<script src="./app.js"></script>-->
-
     <h1>ROCK, PAPER, SCISSOR</h1>
 
     <div class="score-container">
         <div class="rectangle">
             <div class="player">YOU</div>
-            <div class="score-human">0</div>
+            <div id="human-score">0</div>
         </div>
         
         <div class="rectangle">
             <div class="player">COMPUTER</div>
-            <div class="score-computer">0</div>
+            <div id="computer-score">0</div>
         </div>
     </div>
 
@@ -28,26 +27,26 @@
         <div class="human-side">
             <div class="top-options">
                 <button id="paper">
-                    <img src="./icons/paper.png" alt="Paper">
+                    <img id="paperH" src="./icons/paper.png" alt="Paper">
                 </button>
                 <button id="scissor">
-                    <img src="./icons/scissor.png" alt="Scissor">
+                    <img id="scissorH" src="./icons/scissor.png" alt="Scissor">
                 </button>
             </div>
             <div class="bottom-options">
                 <button id="rock">
-                    <img src="./icons/rock.png" alt="Rock">   
+                    <img id="rockH" src="./icons/rock.png" alt="Rock">   
                 </button>
             </div>
         </div>
 
         <div class="computer-side">
             <div class="top-options">
-                <img src="./icons/paper.png" alt="Paper" width="100px" height="100px">
-                <img src="./icons/scissor.png" alt="Scissor" width="100px" height="100px">
+                <img id="paperC" src="./icons/paper.png" alt="Paper" width="100px" height="100px">
+                <img id="scissorC" src="./icons/scissor.png" alt="Scissor" width="100px" height="100px">
             </div>
             <div class="bottom-options">
-                <img src="./icons/rock.png" alt="Rock" width="100px" height="100px">
+                <img id="rockC" src="./icons/rock.png" alt="Rock" width="100px" height="100px">
             </div>
         </div>
     </div>
