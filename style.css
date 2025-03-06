@@ -14,7 +14,7 @@ img{
     height: 100px;
 }
 
-#paper, #scissor, #rock{
+#paper, #rock, #scissor{
     width: 100px;
     height: 100px;
     background-size: cover;

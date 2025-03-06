@@ -1,14 +1,5 @@
-//Paper
-const paperBtn = document.querySelector("#paper");
-paperBtn.addEventListener("click", () => getHumanChoice("paper"));
-
-//Scissor
-const sciBtn = document.querySelector("#scissor");
-sciBtn.addEventListener("click", () => getHumanChoice("scissor"));
-
-//Rock
-const rockBtn = document.querySelector("#rock");
-rockBtn.addEventListener("click", () => getHumanChoice("rock"));
+//Human Choice
+const options = document.querySelectorAll(".option");
 
 //Images
 const paperH = document.querySelector("#paperH");
@@ -21,23 +12,9 @@ const rockC = document.querySelector("#rockC");
 
 //Scores
 let scoreH = document.querySelector("#human-score");
-let humanScore = parseInt(scoreH);
-let scoreC = document.querySelector("computer-score");
-let computerScore = parseInt(scoreC);
-
-//Get user's choice
-function getHumanChoice(choice){
-    if(choice == "paper"){
-        paperH.src = "./icons/paper-selected.png";
-    } else if(choice == "scissor"){   
-        scissorH.src = "./icons/scissor-selected.png";
-    } else{ 
-        rockH.src = "./icons/rock-selected.png";
-    }
-
-    console.log("You chose: " + choice);
-    return choice;
-};
+let humanScore = 0;
+let scoreC = document.querySelector("#computer-score");
+let computerScore = 0;
 
 //Get computer's choice
 function getComputerChoice(){
@@ -54,7 +31,6 @@ function getComputerChoice(){
         scissorC.src = "./icons/scissor-selected.png";
     }
 
-    console.log("Computer: " + computerChose)
     return computerChose;
 };
 
@@ -62,17 +38,33 @@ function getComputerChoice(){
 function playRound(humanChoice, computerChoice){
     if (humanChoice == computerChoice){
         alert("It's a tie");
+
+        //Display score on UI
+        scoreH.textContent = humanScore;
+        scoreC.textContent = computerScore;
+
+        //Display score on console
         console.log("Your score: " + humanScore)
         console.log("Computer score: " + computerScore);
     } else if(humanChoice == "rock"){
         if (computerChoice == "scissor"){
             alert("Rock smashes scissor! You win!");
             humanScore += 1;
+
+            //Display score on UI
+            scoreH.textContent = humanScore;
+
+            //Display score on console
             console.log("Your score: " + humanScore)
             console.log("Computer score: " + computerScore);
         } else{
             alert("Paper covers rock! You lose.")
             computerScore += 1;
+
+            //Display score on UI
+            scoreC.textContent = computerScore;
+
+            //Display score on console
             console.log("Your score: " + humanScore)
             console.log("Computer score: " + computerScore);
         }
@@ -80,11 +72,21 @@ function playRound(humanChoice, computerChoice){
         if (computerChoice == "rock"){
             alert("Paper covers rock! You win!");
             humanScore +=  1;
+
+            //Display score on UI
+            scoreH.textContent = humanScore;
+
+            //Display score on console
             console.log("Your score: " + humanScore)
             console.log("Computer score: " + computerScore);
         } else{
             alert("Scissors cut paper! You lose.");
             computerScore += 1;
+
+            //Display score on UI
+            scoreC.textContent = computerScore;
+
+            //Display score on console
             console.log("Your score: " + humanScore)
             console.log("Computer score: " + computerScore);
         }
@@ -92,20 +94,78 @@ function playRound(humanChoice, computerChoice){
         if (computerChoice == "paper"){
             alert("Scissors cut paper! You win!");
             humanScore += 1;
+
+            //Display score on UI
+            scoreH.textContent = humanScore;
+
+            //Display score on console
             console.log("Your score: " + humanScore)
             console.log("Computer score: " + computerScore);
         } else{
             alert("Rock smashes scissor! You lose.");
             computerScore += 1;
+
+            //Display score on UI
+            scoreC.textContent = computerScore;
+
+            //Display score on console
             console.log("Your score: " + humanScore)
             console.log("Computer score: " + computerScore);
         }
     }
 };
 
-function playGame(){
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
+/* function playGame(){
+    options.forEach(option => {
+        option.addEventListener("click", () => {
+            const humanSelection = option.id;
+            
+            //Change image to selected
+            if (humanSelection == "paper"){
+                paperH.src = "./icons/paper-selected.png";
+            } else if (humanSelection == "scissor"){
+                scissorH.src = "./icons/scissor-selected.png";
+            } else{
+                rockH.src = "./icons/rock-selected.png";
+            }
 
-    playRound(humanSelection, computerSelection);
-};
+            const computerSelection = getComputerChoice();
+
+            //Display choices
+            console.log("You: " + humanSelection);
+            console.log("Computer: " + computerSelection);
+
+            playRound(humanSelection, computerSelection);
+
+        });
+    });
+}; */
+
+
+    options.forEach(option => {
+        option.addEventListener("click", () => {
+            const humanSelection = option.id;
+            
+            //Change image to selected
+            if (humanSelection == "paper"){
+                paperH.src = "./icons/paper-selected.png";
+            } else if (humanSelection == "scissor"){
+                scissorH.src = "./icons/scissor-selected.png";
+            } else{
+                rockH.src = "./icons/rock-selected.png";
+            }
+
+            const computerSelection = getComputerChoice();
+
+            //Display choices
+            console.log("You: " + humanSelection);
+            console.log("Computer: " + computerSelection);
+
+            playRound(humanSelection, computerSelection);
+
+        });
+    });
+
+/* for(let tries = 1; tries <= 5; tries++){
+    playGame();
+} */
