@@ -1,6 +1,9 @@
 //Human Choice
 const options = document.querySelectorAll(".option");
 
+//Game instructions
+const howButton = document.querySelector("#how-button");
+
 //Images
 const paperH = document.querySelector("#paperH");
 const scissorH = document.querySelector("#scissorH");
@@ -46,6 +49,8 @@ function playRound(humanChoice, computerChoice){
         //Display score on console
         console.log("Your score: " + humanScore)
         console.log("Computer score: " + computerScore);
+
+        setTimeout(playAgain, 500);
     } else if(humanChoice == "rock"){
         if (computerChoice == "scissor"){
             alert("Rock smashes scissor! You win!");
@@ -57,6 +62,8 @@ function playRound(humanChoice, computerChoice){
             //Display score on console
             console.log("Your score: " + humanScore)
             console.log("Computer score: " + computerScore);
+
+            setTimeout(playAgain, 500);
         } else{
             alert("Paper covers rock! You lose.")
             computerScore += 1;
@@ -67,6 +74,8 @@ function playRound(humanChoice, computerChoice){
             //Display score on console
             console.log("Your score: " + humanScore)
             console.log("Computer score: " + computerScore);
+
+            setTimeout(playAgain, 500);
         }
     } else if(humanChoice == "paper"){
         if (computerChoice == "rock"){
@@ -79,6 +88,8 @@ function playRound(humanChoice, computerChoice){
             //Display score on console
             console.log("Your score: " + humanScore)
             console.log("Computer score: " + computerScore);
+            
+            setTimeout(playAgain, 500);
         } else{
             alert("Scissors cut paper! You lose.");
             computerScore += 1;
@@ -89,6 +100,8 @@ function playRound(humanChoice, computerChoice){
             //Display score on console
             console.log("Your score: " + humanScore)
             console.log("Computer score: " + computerScore);
+            
+            setTimeout(playAgain, 500);
         }
     } else if (humanChoice = "scissor"){
         if (computerChoice == "paper"){
@@ -101,6 +114,8 @@ function playRound(humanChoice, computerChoice){
             //Display score on console
             console.log("Your score: " + humanScore)
             console.log("Computer score: " + computerScore);
+            
+            setTimeout(playAgain, 500);
         } else{
             alert("Rock smashes scissor! You lose.");
             computerScore += 1;
@@ -111,11 +126,14 @@ function playRound(humanChoice, computerChoice){
             //Display score on console
             console.log("Your score: " + humanScore)
             console.log("Computer score: " + computerScore);
+            
+            setTimeout(playAgain, 500);
         }
     }
 };
 
-/* function playGame(){
+function playGame(){
+    //Get Human's choice
     options.forEach(option => {
         option.addEventListener("click", () => {
             const humanSelection = option.id;
@@ -139,33 +157,42 @@ function playRound(humanChoice, computerChoice){
 
         });
     });
-}; */
+};
 
+//Ask user if they want to play again
+function playAgain(){
+    const text = "Do you still want to play?";
 
-    options.forEach(option => {
-        option.addEventListener("click", () => {
-            const humanSelection = option.id;
-            
-            //Change image to selected
-            if (humanSelection == "paper"){
-                paperH.src = "./icons/paper-selected.png";
-            } else if (humanSelection == "scissor"){
-                scissorH.src = "./icons/scissor-selected.png";
-            } else{
-                rockH.src = "./icons/rock-selected.png";
-            }
+    //Reset options
+    if (confirm(text) == true){
+        paperH.src = "./icons/paper.png";
+        scissorH.src = "./icons/scissor.png";
+        rockH.src = "./icons/rock.png";
 
-            const computerSelection = getComputerChoice();
+        paperC.src = "./icons/paper.png";
+        scissorC.src = "./icons/scissor.png";
+        rockC.src = "./icons/rock.png";
+    } else{
+        alert("Game over!");
 
-            //Display choices
-            console.log("You: " + humanSelection);
-            console.log("Computer: " + computerSelection);
+        paperH.src = "./icons/paper.png";
+        scissorH.src = "./icons/scissor.png";
+        rockH.src = "./icons/rock.png";
 
-            playRound(humanSelection, computerSelection);
+        paperC.src = "./icons/paper.png";
+        scissorC.src = "./icons/scissor.png";
+        rockC.src = "./icons/rock.png";
 
-        });
-    });
+        scoreC.textContent = 0;
+        scoreH.textContent = 0;
+    }
+}
 
-/* for(let tries = 1; tries <= 5; tries++){
-    playGame();
-} */
+//How to play pop up
+howButton.addEventListener("click", () => {
+    alert("Game Instructions:\nClick either rock, paper, or scissor"
+    + "\n\nRemember:\nRock smashes scissors.\nPaper covers rock.\nScissors cut paper."
+    + "\n\n Have fun!");
+});
+
+playGame();
