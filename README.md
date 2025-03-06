@@ -1,5 +1,4 @@
-# rock-paper-scissor
-<h1>Rock Paper and Scissors Game</h1>
+# Rock, Paper, and Scissors Game
 <p>Play rock, paper, and scissors with a computer.</p>
 <ul>
     <li><strong>Rock</strong> smashes scissors.</li>
